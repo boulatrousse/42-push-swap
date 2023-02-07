@@ -6,11 +6,12 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:49:29 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/05 10:56:04 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/07 11:15:07 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 static void	ft_fail(char *str, char **array, t_node *lst_a, t_node *lst)
 {
@@ -61,6 +62,30 @@ static void	ft_solve(char *str, char **array, t_node *lst_a, t_node *lst_b)
 	ft_free(array, lst_a, lst_b, lst_c);
 }
 
+static void	ft_check_str(char *str)
+{
+	int		i;
+	int		j;
+	int		count;
+
+	i = 0;
+	j = 0;
+	count = 0;
+	while (str[i])
+		i++;
+	while (str[j])
+	{
+		if (str[j] == ' ' || str[j] == '\t')
+			count++;
+		j++;
+	}
+	if (i == count)
+	{
+		free(str);
+		exit(EXIT_FAILURE);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	char	*str;
@@ -77,6 +102,7 @@ int	main(int argc, char **argv)
 	else if ((errors_manager(argc, argv) == 1))
 	{
 		str = ft_one_str(argc, argv);
+		ft_check_str(str);
 		if (!str)
 			exit(EXIT_FAILURE);
 		array = convert_str(str);

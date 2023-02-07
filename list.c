@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:05:18 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/05 10:27:35 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/07 10:57:05 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_node	*init_list(int x)
 t_node	*fill_pile(char **array, char *str)
 {
 	int			i;
-	long long	x;
+	long int	x;
 	t_node		*list;
 	t_node		*new;
 
