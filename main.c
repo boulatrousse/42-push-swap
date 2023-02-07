@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:49:29 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/07 11:15:07 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:58:32 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,9 @@ int	main(int argc, char **argv)
 	else if ((errors_manager(argc, argv) == 1))
 	{
 		str = ft_one_str(argc, argv);
-		ft_check_str(str);
 		if (!str)
 			exit(EXIT_FAILURE);
+		ft_check_str(str);
 		array = convert_str(str);
 		if (!array)
 			ft_fail(str, array, lst_a, lst_b);
