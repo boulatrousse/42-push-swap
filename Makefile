@@ -16,18 +16,18 @@ CC		= gcc
 
 FLAGS	= -Wall -Werror -Wextra
 
-HEADER	= push_swap/
+HEADER	= push_swap.h
 
 NAME	= push_swap
 
 RM		= rm -f
 
-all:	${NAME} Makefile
+all:	${NAME} Makefile 
 
-%.o:	%.c ${HEADER} Makefile
-		${CC} ${FLAGS} -I${HEADER} -c $< -o $@
+%.o:	%.c ${HEADER} Makefile 
+		${CC} ${FLAGS} -include${HEADER} -c $< -o $@
 
-${NAME}:	${OBJS}
+${NAME}:	${OBJS} ${HEADER}
 			${CC} ${OBJS} -o ${NAME}
 
 clean:

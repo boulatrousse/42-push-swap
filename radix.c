@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:27:31 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/01/23 09:39:14 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:54:39 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,10 @@ void	solve_four(t_node **lst_a, t_node **lst_b)
 void	solve_five(t_node **lst_a, t_node **lst_b)
 {
 	int			x;
-	int			tmp;
 	int			min;
 	t_node		*last_val;
 
 	x = 5;
-	tmp = 0;
 	min = min_value(*lst_a);
 	last_val = ft_lstlast(*lst_a);
 	if (last_val->data == min_value(*lst_a))
