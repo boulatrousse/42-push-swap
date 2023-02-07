@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:07:44 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/05 10:33:38 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:21:47 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ static int	is_number(char *src)
 	return (0);
 }
 
-static int	is_double(char *str, int i, int j)
+static int	is_double(char *str, char **array, int i, int j)
 {
-	char	**array;
-
 	array = convert_str(str);
+	if (!array)
+		exit(EXIT_FAILURE);
 	while (array[i])
 	{
 		while (array[j])
@@ -86,24 +86,24 @@ static int	check_str(char *src)
 	return (0);
 }
 
-static int	check_arg(int argc, char **argv)
+static int	check_arg(int argc, char **argv, int i)
 {
-	int		i;
 	char	*str;
+	char	**array;
 
-	i = 1;
 	str = ft_one_str(argc, argv);
 	if (!str)
 		exit(EXIT_FAILURE);
+	array = NULL;
 	if (argc == 2)
-		if (is_number(argv[1]) == -1 || is_double(str, 0, 1) == -1)
+		if (is_number(argv[1]) == -1 || is_double(str, array, 0, 1) == -1)
 			return (free(str), -1);
 	if (argc > 2)
 	{
 		while (i < argc)
 		{
 			if ((check_str(argv[i]) == -1) || (is_number(argv[i]) == -1)
-				|| is_double(str, 0, 1) == -1)
+				|| is_double(str, array, 0, 1) == -1)
 				return (free(str), -1);
 			else
 				i++;
@@ -115,7 +115,7 @@ static int	check_arg(int argc, char **argv)
 
 int	errors_manager(int argc, char **argv)
 {
-	if ((check_arg(argc, argv) == -1))
+	if ((check_arg(argc, argv, 1) == -1))
 		return (-1);
 	else
 		return (1);
