@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 12:50:51 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/05 10:19:42 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:23:47 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,6 @@ void	display_error(void)
 {
 	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(EXIT_FAILURE);
-}
-
-void	free_array(char **array)
-{
-	int		i;
-
-	i = 0;
-	if (array)
-	{
-		while (array[i])
-		{
-			free(array[i]);
-			i++;
-		}
-		free(array);
-	}
-	else
-		return ;
 }
 
 void	ft_free(char **array, t_node *lst_a, t_node *lst_b, t_node *lst_c)

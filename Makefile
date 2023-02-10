@@ -9,6 +9,7 @@ SRCS	= check_arguments.c \
 		push_swap_utils3.c \
 		radix_utils.c \
 		radix.c \
+		array.c \
 
 OBJS	= ${SRCS:.c=.o}
 

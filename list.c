@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:05:18 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/07 10:57:05 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:22:59 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ t_node	*fill_pile(char **array, char *str)
 	i = 1;
 	list = init_list(ft_atoi(array[0]));
 	if (!list)
+		ft_exit_atoi(str, array, list);
+	if (ft_atoi(array[0]) > 2147483647 || ft_atoi(array[0]) < -2147483648)
 		ft_exit_atoi(str, array, list);
 	while (array[i])
 	{

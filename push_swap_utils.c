@@ -6,12 +6,11 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 09:36:37 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/05 10:23:23 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:21:41 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 long int	ft_atoi(char *str)
 {
@@ -63,41 +62,4 @@ char	*ft_strcat(char *dest, char *src)
 		dest[i++] = src[x++];
 	dest[i] = '\0';
 	return (dest);
-}
-
-char	*ft_one_str(int argc, char **argv)
-{
-	int		x;
-	int		count;
-	char	*str;
-
-	x = 1;
-	count = 0;
-	while (x < argc)
-	{
-		count += ft_strlen(argv[x]) + 1;
-		x++;
-	}
-	str = malloc(sizeof(char) * (count + 1));
-	if (!str)
-		return (NULL);
-	str[0] = '\0';
-	x = 1;
-	while (x < argc)
-	{
-		ft_strcat(str, argv[x]);
-		ft_strcat(str, " ");
-		x++;
-	}
-	return (str);
-}
-
-char	**convert_str(char *src)
-{
-	char	**str;
-
-	str = ft_split(src, ' ');
-	if (!str)
-		exit(EXIT_FAILURE);
-	return (str);
 }
