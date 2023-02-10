@@ -6,12 +6,11 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:49:29 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/07 15:58:32 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:35:39 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static void	ft_fail(char *str, char **array, t_node *lst_a, t_node *lst)
 {
