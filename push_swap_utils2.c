@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:43:59 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/10 10:30:44 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:33:14 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,3 @@ int	ft_index(t_node *lst_a, t_node *lst_c)
 	}
 	return (index);
 }
-
-
-
