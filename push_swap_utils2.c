@@ -6,39 +6,37 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:43:59 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/01/20 11:26:59 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:30:44 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putstr_fd(char *s, int fd)
+long int	ft_atoi(char *str)
 {
-	int	i;
+	int			i;
+	long int	x;
+	int			sign;
 
 	i = 0;
-	if (s)
-	{
-		while (s[i])
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
-	}
-}
-
-int	ft_strcmp(char *s1, char *s2, int i, int j)
-{
-	while (s1[i] == '0')
+	x = 0;
+	sign = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
 		i++;
-	while (s2[j] == '0')
-		j++;
-	while (s1[i] == s2[j] && s1[i] != '\0')
+	if (str[i] == '-')
 	{
+		sign *= -1;
 		i++;
-		j++;
 	}
-	return (s1[i] - s2[j]);
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		x = (str[i] - 48) + (x * 10);
+		i++;
+	}
+	x = x * sign;
+	return (x);
 }
 
 int	ft_numlen(int n)
@@ -54,35 +52,31 @@ int	ft_numlen(int n)
 	return (x);
 }
 
-int	ft_a_is_sorted(t_node *lst)
+int	ft_index(t_node *lst_a, t_node *lst_c)
 {
-	while (lst->next != NULL)
-	{
-		if (lst->data < lst->next->data)
-			lst = lst->next;
-		else
-			return (-1);
-	}
-	return (0);
-}
+	int		index;
+	t_node	*curra;
+	t_node	*currc;
 
-void	ft_sort_list(t_node *lst)
-{
-	int			swap;
-	t_node		*tmp;
-
-	tmp = lst;
-	while (lst->next != NULL)
+	index = 0;
+	curra = lst_a;
+	currc = lst_c;
+	while (curra->next != NULL)
 	{
-		if ((lst->data <= lst->next->data) == 0)
+		while (currc->next != NULL)
 		{
-			swap = lst->data;
-			lst->data = lst->next->data;
-			lst->next->data = swap;
-			lst = tmp;
+			if (curra->data == currc->data)
+				return (index);
+			else
+			{
+				index++;
+				currc = currc->next;
+			}
 		}
-		else
-			lst = lst->next;
+		curra = curra->next;
 	}
-	lst = tmp;
+	return (index);
 }
+
+
+

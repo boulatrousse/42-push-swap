@@ -6,38 +6,11 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 09:36:37 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/10 10:21:41 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:30:25 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-long int	ft_atoi(char *str)
-{
-	int			i;
-	long int	x;
-	int			sign;
-
-	i = 0;
-	x = 0;
-	sign = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
-		i++;
-	if (str[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		x = (str[i] - 48) + (x * 10);
-		i++;
-	}
-	x = x * sign;
-	return (x);
-}
 
 int	ft_strlen(const char *str)
 {
@@ -62,4 +35,33 @@ char	*ft_strcat(char *dest, char *src)
 		dest[i++] = src[x++];
 	dest[i] = '\0';
 	return (dest);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	if (s)
+	{
+		while (s[i])
+		{
+			write(fd, &s[i], 1);
+			i++;
+		}
+	}
+}
+
+int	ft_strcmp(char *s1, char *s2, int i, int j)
+{
+	while (s1[i] == '0')
+		i++;
+	while (s2[j] == '0')
+		j++;
+	while (s1[i] == s2[j] && s1[i] != '\0')
+	{
+		i++;
+		j++;
+	}
+	return (s1[i] - s2[j]);
 }

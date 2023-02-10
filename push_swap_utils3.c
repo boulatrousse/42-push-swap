@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 12:50:51 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/10 10:23:47 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:30:40 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,35 @@ void	ft_free(char **array, t_node *lst_a, t_node *lst_b, t_node *lst_c)
 	lst_c = NULL;
 }
 
-int	ft_index(t_node *lst_a, t_node *lst_c)
+int	ft_a_is_sorted(t_node *lst)
 {
-	int		index;
-	t_node	*curra;
-	t_node	*currc;
-
-	index = 0;
-	curra = lst_a;
-	currc = lst_c;
-	while (curra->next != NULL)
+	while (lst->next != NULL)
 	{
-		while (currc->next != NULL)
-		{
-			if (curra->data == currc->data)
-				return (index);
-			else
-			{
-				index++;
-				currc = currc->next;
-			}
-		}
-		curra = curra->next;
+		if (lst->data < lst->next->data)
+			lst = lst->next;
+		else
+			return (-1);
 	}
-	return (index);
+	return (0);
+}
+
+void	ft_sort_list(t_node *lst)
+{
+	int			swap;
+	t_node		*tmp;
+
+	tmp = lst;
+	while (lst->next != NULL)
+	{
+		if ((lst->data <= lst->next->data) == 0)
+		{
+			swap = lst->data;
+			lst->data = lst->next->data;
+			lst->next->data = swap;
+			lst = tmp;
+		}
+		else
+			lst = lst->next;
+	}
+	lst = tmp;
 }
