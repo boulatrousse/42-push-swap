@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:49:29 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/10 10:35:39 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/11 11:10:28 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static void	ft_solve(char *str, char **array, t_node *lst_a, t_node *lst_b)
 	if (!lst_a)
 		ft_fail(str, array, lst_a, lst_c);
 	lst_c = fill_pile(array, str);
+	if (!lst_c)
+		ft_fail(str, array, lst_a, lst_c);
 	ft_sort_list(lst_c);
 	if (ft_a_is_sorted(lst_a) == 0)
 		ft_success(str, array, lst_a, lst_c);
@@ -96,7 +98,7 @@ int	main(int argc, char **argv)
 	lst_b = NULL;
 	if (argc <= 1)
 		return (0);
-	if ((errors_manager(argc, argv) == -1))
+	if ((errors_manager(argc, argv) == -1) || check_zero(argc, argv) == -1)
 		display_error();
 	else if ((errors_manager(argc, argv) == 1))
 	{

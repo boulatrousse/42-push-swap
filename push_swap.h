@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:28:32 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/05 10:34:01 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/11 11:06:22 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_node
 
 void		display_error(void);
 int			errors_manager(int argc, char **argv);
+int			check_zero(int argc, char **argv);
 
 // ------------ free -----------------------------------------
 

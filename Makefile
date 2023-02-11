@@ -1,4 +1,5 @@
 SRCS	= check_arguments.c \
+		check_zero.c \
 		ft_split.c \
 		instructions.c \
 		list_utils.c \

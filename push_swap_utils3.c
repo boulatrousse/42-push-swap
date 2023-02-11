@@ -6,7 +6,7 @@
 /*   By: lboulatr <lboulatr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 12:50:51 by lboulatr          #+#    #+#             */
-/*   Updated: 2023/02/10 10:33:26 by lboulatr         ###   ########.fr       */
+/*   Updated: 2023/02/11 10:32:41 by lboulatr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	ft_sort_list(t_node *lst)
 	int			swap;
 	t_node		*tmp;
 
+	if (!lst)
+		return ;
 	tmp = lst;
 	while (lst->next != NULL)
 	{
